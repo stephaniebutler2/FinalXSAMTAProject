@@ -14,8 +14,6 @@
       <viewAttribute id="MANDT"/>
       <viewAttribute id="CARRID"/>
       <viewAttribute id="CARRNAME"/>
-      <viewAttribute id="CURRCODE"/>
-      <viewAttribute id="URL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
@@ -23,8 +21,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CARRNAME" source="CARRNAME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CURRCODE" source="CURRCODE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="URL" source="URL"/>
     </input>
   </calculationView>
 </calculationViews>
