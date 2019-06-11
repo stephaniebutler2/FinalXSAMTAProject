@@ -17,15 +17,13 @@
       <viewAttribute id="CURRCODE"/>
       <viewAttribute id="URL"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_1" datatype="VARCHAR" length="13" expressionLanguage="SQL">
+        <formula>&quot;URL&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <restrictedViewAttributes/>
-    <input node="SCARR">
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRNAME" source="CARRNAME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CURRCODE" source="CURRCODE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="URL" source="URL"/>
-    </input>
+    <input node="SCARR"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Projection_1">
