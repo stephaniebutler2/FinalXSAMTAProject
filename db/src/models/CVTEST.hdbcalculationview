@@ -14,8 +14,6 @@
       <viewAttribute id="MANDT"/>
       <viewAttribute id="CARRID"/>
       <viewAttribute id="CARRNAME"/>
-      <viewAttribute id="CURRCODE"/>
-      <viewAttribute id="URL"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_1" datatype="VARCHAR" length="13" expressionLanguage="SQL">
@@ -23,7 +21,15 @@
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <restrictedViewAttributes/>
+<<<<<<< HEAD
     <input node="SCARR"/>
+=======
+    <input node="SCARR">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRNAME" source="CARRNAME"/>
+    </input>
+>>>>>>> refs/heads/master
   </calculationView>
 </calculationViews>
 <logicalModel id="Projection_1">
