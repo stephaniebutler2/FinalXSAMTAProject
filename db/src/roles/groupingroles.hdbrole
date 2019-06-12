@@ -1,0 +1,16 @@
+{
+	"role": {
+		"name": "groupofroles#",
+		"schema_roles": [{
+			"names": ["access", "datamaskingaccess#"]
+		}],
+		"object_privileges":[
+			{
+				"name": "cv_intersect",
+				"type": "VIEW",
+				"privileges_with_grant_option": [ "SELECT" ]
+			}
+			
+		]
+	}
+}
