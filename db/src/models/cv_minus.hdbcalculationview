@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_minus" applyPrivilegeType="NONE" dataCategory="DIMENSION" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cv_minus"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="newnodes.SalesData">
+    <resourceUri>newnodes.SalesData</resourceUri>
+  </DataSource>
+  <DataSource id="newnodes.InventoryData">
+    <resourceUri>newnodes.InventoryData</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="Product"/>
+      <viewAttribute id="SoldinCity"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="newnodes.SalesData">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SoldinCity" source="SoldinCity"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="Product"/>
+      <viewAttribute id="StockinCity"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="newnodes.InventoryData">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StockinCity" source="StockinCity"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:MinusView" id="Minus_1">
+    <viewAttributes>
+      <viewAttribute id="Product"/>
+      <viewAttribute id="City"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="City" source="SoldinCity"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="City" source="StockinCity"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Minus_1">
+  <attributes>
+    <attribute id="Product" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product"/>
+      <keyMapping columnObjectName="Minus_1" columnName="Product"/>
+    </attribute>
+    <attribute id="City" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SoldinCity"/>
+      <keyMapping columnObjectName="Minus_1" columnName="City"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="221.11302679000914" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92.00000000000001" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Minus_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="221.11302679000914" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

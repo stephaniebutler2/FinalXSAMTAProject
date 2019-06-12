@@ -1,0 +1,28 @@
+context newnodes { 
+    /*@@layout{"layoutInfo":{"x":-512,"y":-122.5}}*/ 
+    
+    entity SalesData { 
+
+        key Product   : String(5000) not null; 
+
+        key    SoldinCity : String(15)    not null; 
+        key    Year : String(4) not null;
+
+    }; 
+
+ 
+
+    /*@@layout{"layoutInfo":{"x":-960,"y":-293.5}}*/ 
+
+    entity InventoryData { 
+
+        key Product   : String(5000) not null; 
+
+        key    StockinCity : String(15)    not null; 
+        key    Year : String(4) not null;
+
+    }; 
+
+ 
+
+}; 

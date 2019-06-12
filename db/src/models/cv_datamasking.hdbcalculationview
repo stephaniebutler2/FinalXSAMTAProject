@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_datamasking" applyPrivilegeType="NONE" dataCategory="DIMENSION" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cv_datamasking"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SCUSTOM">
+    <resourceUri>SCUSTOM</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="SCUSTOM">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="MANDT"/>
+    </attribute>
+    <attribute id="ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="ID"/>
+    </attribute>
+    <attribute id="NAME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NAME"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="NAME"/>
+    </attribute>
+    <attribute id="STREET" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <maskingExpression>'XXXXXXXXXXXX'</maskingExpression>
+      <keyMapping columnObjectName="SCUSTOM" columnName="STREET"/>
+    </attribute>
+    <attribute id="POSTCODE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTCODE"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="POSTCODE"/>
+    </attribute>
+    <attribute id="CITY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="CITY"/>
+    </attribute>
+    <attribute id="COUNTRY" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="REGION" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="REGION"/>
+    </attribute>
+    <attribute id="TELEPHONE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TELEPHONE"/>
+      <maskingExpression>'XXX_XXX_XXXX'</maskingExpression>
+      <keyMapping columnObjectName="SCUSTOM" columnName="TELEPHONE"/>
+    </attribute>
+    <attribute id="CUSTTYPE" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTTYPE"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="CUSTTYPE"/>
+    </attribute>
+    <attribute id="DISCOUNT" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISCOUNT"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="DISCOUNT"/>
+    </attribute>
+    <attribute id="LANGU" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANGU"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="LANGU"/>
+    </attribute>
+    <attribute id="EMAIL" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL"/>
+      <maskingExpression>'XXXXXXXXX@XXX.com'</maskingExpression>
+      <keyMapping columnObjectName="SCUSTOM" columnName="EMAIL"/>
+    </attribute>
+    <attribute id="WEBUSER" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEBUSER"/>
+      <keyMapping columnObjectName="SCUSTOM" columnName="WEBUSER"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

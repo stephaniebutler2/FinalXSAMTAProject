@@ -1,0 +1,15 @@
+context grph {
+
+    /*@@layout{"layoutInfo":{"x":-512,"y":-122.5}}*/
+    entity NODES {
+        key ID   : String(5000) not null;
+            TYPE : String(8)    not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-960,"y":-293.5}}*/
+    entity EDGES {
+        key ID     : Integer      not null;
+            SOURCE : String(5000) not null;
+            TARGET : String(5000) not null;
+    };
+};
