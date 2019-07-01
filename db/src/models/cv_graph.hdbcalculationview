@@ -45,4 +45,4 @@ RETURN p.ID AS PLANT
     </shape>
   </shapes>
 </layout>
-</Calculation:scenario>
+</Calculation:scenario> 

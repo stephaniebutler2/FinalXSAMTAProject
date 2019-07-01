@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_hierarchy_lvl" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cv_hierarchy_lvl"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HIERARCHY_CV_DEMO_LVL">
+    <resourceUri>HIERARCHY_CV_DEMO_LVL</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:HierarchyView" id="Hierarchy_1" function="HIERARCHY_LEVELED">
+    <viewAttributes>
+      <viewAttribute datatype="BIGINT" id="HIERARCHY_RANK"/>
+      <viewAttribute datatype="BIGINT" id="HIERARCHY_TREE_SIZE"/>
+      <viewAttribute datatype="BIGINT" id="HIERARCHY_PARENT_RANK"/>
+      <viewAttribute datatype="INTEGER" id="HIERARCHY_LEVEL"/>
+      <viewAttribute datatype="TINYINT" id="HIERARCHY_IS_CYCLE"/>
+      <viewAttribute datatype="TINYINT" id="HIERARCHY_IS_ORPHAN"/>
+      <viewAttribute datatype="NVARCHAR" length="256" id="HIERARCHY_LEVEL_NAME"/>
+      <viewAttribute datatype="NVARCHAR" length="5000" id="PARENT_ID"/>
+      <viewAttribute datatype="NVARCHAR" length="5000" id="NODE_ID"/>
+      <viewAttribute datatype="VARCHAR" length="2" id="LEVEL_1"/>
+      <viewAttribute datatype="NVARCHAR" length="2" id="LEVEL_2"/>
+      <viewAttribute datatype="INTEGER" id="ATTR_2" aggregationType="sum"/>
+      <viewAttribute datatype="NVARCHAR" length="2" id="LEVEL_3"/>
+      <viewAttribute datatype="NVARCHAR" length="2" id="LEVEL_4"/>
+      <viewAttribute datatype="INTEGER" id="ATTR_4" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="HIERARCHY_CV_DEMO_LVL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL_1" source="LEVEL_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL_2" source="LEVEL_2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ATTR_2" source="ATTR_2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL_3" source="LEVEL_3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL_4" source="LEVEL_4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ATTR_4" source="ATTR_4"/>
+    </input>
+    <hierarchyLeveledParameterization>
+      <levels>
+        <level>LEVEL_1</level>
+        <level>LEVEL_2</level>
+        <level>LEVEL_3</level>
+        <level>LEVEL_4</level>
+      </levels>
+      <siblingOrder byAttribute="ATTR_2" direction="ASC" uniqueName="ATTR_2"/>
+      <siblingOrder byAttribute="ATTR_4" direction="ASC" uniqueName="ATTR_4"/>
+    </hierarchyLeveledParameterization>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Hierarchy_1">
+  <attributes>
+    <attribute id="HIERARCHY_LEVEL_NAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HIERARCHY_LEVEL_NAME"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_LEVEL_NAME"/>
+    </attribute>
+    <attribute id="PARENT_ID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARENT_ID"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="PARENT_ID"/>
+    </attribute>
+    <attribute id="NODE_ID" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NODE_ID"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="NODE_ID"/>
+    </attribute>
+    <attribute id="LEVEL_1" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LEVEL_1"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="LEVEL_1"/>
+    </attribute>
+    <attribute id="LEVEL_2" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LEVEL_2"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="LEVEL_2"/>
+    </attribute>
+    <attribute id="LEVEL_3" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LEVEL_3"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="LEVEL_3"/>
+    </attribute>
+    <attribute id="LEVEL_4" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LEVEL_4"/>
+      <keyMapping columnObjectName="Hierarchy_1" columnName="LEVEL_4"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="HIERARCHY_RANK" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="HIERARCHY_RANK"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_RANK"/>
+    </measure>
+    <measure id="HIERARCHY_TREE_SIZE" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="HIERARCHY_TREE_SIZE"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_TREE_SIZE"/>
+    </measure>
+    <measure id="HIERARCHY_PARENT_RANK" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="HIERARCHY_PARENT_RANK"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_PARENT_RANK"/>
+    </measure>
+    <measure id="HIERARCHY_LEVEL" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="HIERARCHY_LEVEL"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_LEVEL"/>
+    </measure>
+    <measure id="HIERARCHY_IS_CYCLE" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="HIERARCHY_IS_CYCLE"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_IS_CYCLE"/>
+    </measure>
+    <measure id="HIERARCHY_IS_ORPHAN" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="HIERARCHY_IS_ORPHAN"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="HIERARCHY_IS_ORPHAN"/>
+    </measure>
+    <measure id="ATTR_2" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ATTR_2"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="ATTR_2"/>
+    </measure>
+    <measure id="ATTR_4" order="15" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ATTR_4"/>
+      <measureMapping columnObjectName="Hierarchy_1" columnName="ATTR_4"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Hierarchy_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="110" y="261"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,3 @@
+COLUMN TABLE hierarchy_cv_demo_lvl (
+ level_1 VARCHAR(2), level_2 NVARCHAR(2), attr_2 int,
+ level_3 NVARCHAR(2), level_4 NVARCHAR(2), attr_4 int );

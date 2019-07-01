@@ -1,0 +1,26 @@
+FUNCTION "TEST_FUNCTION" ( )
+      RETURNS Table(
+      "MANDT" VARCHAR(8),
+      "ID" VARCHAR(8),
+      "NAME" VARCHAR(15),
+      "STREET" VARCHAR(31),
+      "POSTCODE" VARCHAR(8)
+      )
+      LANGUAGE SQLSCRIPT
+    --  SCHEMA NEW_PROJ_SB_HDI_DB
+      SQL SECURITY INVOKER AS
+      
+BEGIN
+
+RETURN
+
+		SELECT TOP 15
+		"MANDT",
+		"ID",
+		"NAME",
+		"STREET",
+		"POSTCODE"
+		FROM "cv_datamasking"
+		;
+
+END;

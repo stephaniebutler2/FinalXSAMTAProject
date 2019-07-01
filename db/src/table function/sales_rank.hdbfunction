@@ -1,0 +1,21 @@
+FUNCTION "SALES_RANK" (IN MYTAB "Sales_by_Company")
+      RETURNS Table(
+      "CompanyName" VARCHAR(8),
+      "Sales" INTEGER,
+      "SalesRank" integer)
+      
+      LANGUAGE SQLSCRIPT
+    --  SCHEMA NEW_PROJ_SB_HDI_DB
+      SQL SECURITY INVOKER AS
+      
+BEGIN
+RETURN
+		Select  "COMPANYNAME" as "CompanyName", "SALESAMOUNT" as "Sales", "SalesRank" from (
+			Select "COMPANYNAME" , "SALESAMOUNT", dense_rank() over (order by "SALESAMOUNT" desc) as "SalesRank"
+			from :MYTAB
+			--group by "COMPANYNAME", "SALESAMOUNT"
+			
+		)
+        where "SalesRank" <= 10
+        order by "SalesRank" asc;
+END;

@@ -1,0 +1,2 @@
+COLUMN TABLE car_company_sales (
+ CompanyName VARCHAR(10), SalesAmount INTEGER );

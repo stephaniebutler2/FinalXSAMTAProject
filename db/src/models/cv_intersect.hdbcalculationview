@@ -25,7 +25,7 @@
     </input>
     <input node="Projection_2">
       <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="City" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="City" source="SoldinCity"/>
     </input>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">

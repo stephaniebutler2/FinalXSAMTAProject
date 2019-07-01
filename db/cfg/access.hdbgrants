@@ -1,39 +1,17 @@
 {
-
 	"SFLIGHT": {
-
 		"object_owner": {
+			"schema_privileges": [{
+				"reference": "SFLIGHT",
+				
+				"privileges_with_grant_option": ["SELECT", "SELECT METADATA", "EXECUTE"]
 
-			"schema_privileges": [
-
-				{
-
+			}]},
+			"application_user": {
+				"schema_privileges": [{
 					"reference": "SFLIGHT",
-
-					"privileges_with_grant_option": ["SELECT", "SELECT METADATA", "EXECUTE"]
-
-				}
-
-			]
-
-		},
-
-		"application_user": {
-
-			"schema_privileges": [
-
-				{
-
-					"reference": "SFLIGHT",
-
-					"privileges_with_grant_option": ["SELECT", "SELECT METADATA", "EXECUTE"]
-
-				}
-
-			]
-
+					"privileges": ["SELECT", "SELECT METADATA", "EXECUTE"]
+				}]
+			}
 		}
-
 	}
-
-}

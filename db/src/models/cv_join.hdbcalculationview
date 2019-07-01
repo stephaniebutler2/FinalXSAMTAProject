@@ -1,104 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_2" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="cv_2"/>
-<localVariables/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_join" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cv_join"/>
+<localVariables>
+  <variable id="IP_1" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="NVARCHAR" length="3" scale="NaN" mandatory="true">
+      <valueDomain type="AttributeValue">
+        <attribute name="CARRID"/>
+      </valueDomain>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+</localVariables>
 <variableMappings/>
 <dataSources>
+  <DataSource id="SBOOK">
+    <resourceUri>SBOOK</resourceUri>
+  </DataSource>
   <DataSource id="SCARR">
     <resourceUri>SCARR</resourceUri>
   </DataSource>
-  <DataSource id="cv_1">
-    <resourceUri>cv_1</resourceUri>
-  </DataSource>
 </dataSources>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="PROJECT1">
-    <viewAttributes>
-      <viewAttribute id="MANDT"/>
-      <viewAttribute id="CARRID"/>
-      <viewAttribute id="CARRNAME"/>
-      <viewAttribute id="CURRCODE"/>
-      <viewAttribute id="URL"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
-    <input node="SCARR">
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRNAME" source="CARRNAME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CURRCODE" source="CURRCODE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="URL" source="URL"/>
-    </input>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
-    <viewAttributes>
-      <viewAttribute id="MANDT"/>
-      <viewAttribute id="CARRID"/>
-      <viewAttribute id="CONNID"/>
-      <viewAttribute id="FLDATE"/>
-      <viewAttribute id="BOOKID"/>
-      <viewAttribute id="CUSTOMID"/>
-      <viewAttribute id="CUSTTYPE"/>
-      <viewAttribute id="SMOKER"/>
-      <viewAttribute id="LUGGWEIGHT" aggregationType="sum"/>
-      <viewAttribute id="WUNIT"/>
-      <viewAttribute id="INVOICE"/>
-      <viewAttribute id="CLASS"/>
-      <viewAttribute id="FORCURAM" aggregationType="sum"/>
-      <viewAttribute id="FORCURKEY"/>
-      <viewAttribute id="LOCCURAM" aggregationType="sum"/>
-      <viewAttribute id="LOCCURKEY"/>
-      <viewAttribute id="ORDER_DATE"/>
-      <viewAttribute id="COUNTER"/>
-      <viewAttribute id="AGENCYNUM"/>
-      <viewAttribute id="CANCELLED"/>
-      <viewAttribute id="RESERVED"/>
-      <viewAttribute id="PASSNAME"/>
-      <viewAttribute id="PASSFORM"/>
-      <viewAttribute id="PASSBIRTH"/>
-      <viewAttribute id="CARRNAME"/>
-      <viewAttribute hidden="true" id="JOIN$MANDT$MANDT"/>
-      <viewAttribute hidden="true" id="JOIN$CARRID$CARRID"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
-    <input node="PROJECT1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRNAME" source="CARRNAME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CARRID$CARRID" source="CARRID"/>
-    </input>
-    <input node="Projection_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="BOOKID" source="BOOKID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMID" source="CUSTOMID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTTYPE" source="CUSTTYPE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SMOKER" source="SMOKER"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LUGGWEIGHT" source="LUGGWEIGHT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="WUNIT" source="WUNIT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="INVOICE" source="INVOICE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CLASS" source="CLASS"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FORCURAM" source="FORCURAM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FORCURKEY" source="FORCURKEY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LOCCURAM" source="LOCCURAM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LOCCURKEY" source="LOCCURKEY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ORDER_DATE" source="ORDER_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTER" source="COUNTER"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AGENCYNUM" source="AGENCYNUM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CANCELLED" source="CANCELLED"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="RESERVED" source="RESERVED"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PASSNAME" source="PASSNAME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PASSFORM" source="PASSFORM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PASSBIRTH" source="PASSBIRTH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CARRID$CARRID" source="CARRID"/>
-    </input>
-    <joinAttribute name="JOIN$MANDT$MANDT"/>
-    <joinAttribute name="JOIN$CARRID$CARRID"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
     <viewAttributes>
       <viewAttribute id="MANDT"/>
       <viewAttribute id="CARRID"/>
@@ -127,32 +51,53 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
-    <input node="cv_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+    <input node="SBOOK"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="CARRID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SCARR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter" ignoreMultipleOutputsForFilter="false">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="FLDATE"/>
+      <viewAttribute id="BOOKID"/>
+      <viewAttribute id="CUSTOMID"/>
+      <viewAttribute id="CUSTTYPE"/>
+      <viewAttribute id="SMOKER"/>
+      <viewAttribute id="LUGGWEIGHT" aggregationType="sum"/>
+      <viewAttribute id="WUNIT"/>
+      <viewAttribute id="INVOICE"/>
+      <viewAttribute id="CLASS"/>
+      <viewAttribute id="FORCURAM" aggregationType="sum"/>
+      <viewAttribute id="FORCURKEY"/>
+      <viewAttribute id="LOCCURAM" aggregationType="sum"/>
+      <viewAttribute id="LOCCURKEY"/>
+      <viewAttribute id="ORDER_DATE"/>
+      <viewAttribute id="COUNTER"/>
+      <viewAttribute id="AGENCYNUM"/>
+      <viewAttribute id="CANCELLED"/>
+      <viewAttribute id="RESERVED"/>
+      <viewAttribute id="PASSNAME"/>
+      <viewAttribute id="PASSFORM"/>
+      <viewAttribute id="PASSBIRTH"/>
+      <viewAttribute id="CARRID_1"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/></input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID_1" source="CARRID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="BOOKID" source="BOOKID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMID" source="CUSTOMID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTTYPE" source="CUSTTYPE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SMOKER" source="SMOKER"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LUGGWEIGHT" source="LUGGWEIGHT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="WUNIT" source="WUNIT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="INVOICE" source="INVOICE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CLASS" source="CLASS"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FORCURAM" source="FORCURAM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FORCURKEY" source="FORCURKEY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LOCCURAM" source="LOCCURAM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LOCCURKEY" source="LOCCURKEY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ORDER_DATE" source="ORDER_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTER" source="COUNTER"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AGENCYNUM" source="AGENCYNUM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CANCELLED" source="CANCELLED"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="RESERVED" source="RESERVED"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PASSNAME" source="PASSNAME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PASSFORM" source="PASSFORM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PASSBIRTH" source="PASSBIRTH"/>
     </input>
+    <joinAttribute name="CARRID"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Join_1">
@@ -241,9 +186,9 @@
       <descriptions defaultDescription="PASSBIRTH"/>
       <keyMapping columnObjectName="Join_1" columnName="PASSBIRTH"/>
     </attribute>
-    <attribute id="CARRNAME" order="25" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CARRNAME"/>
-      <keyMapping columnObjectName="Join_1" columnName="CARRNAME"/>
+    <attribute id="CARRID_1" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="Join_1" columnName="CARRID_1"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -271,25 +216,25 @@
       <upperLeftCorner x="40" y="85"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="PROJECT1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="20" y="301"/>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-45" y="344"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="161" y="349"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="148" y="196"/>
+      <upperLeftCorner x="58" y="206"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="PROJECT1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="149.55615234375"/>
+      <rectangleSize width="161"/>
     </shape>
     <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="161.16845703125"/>
-    </shape>
-    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="218" y="311"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize width="136"/>
     </shape>
   </shapes>
 </layout>

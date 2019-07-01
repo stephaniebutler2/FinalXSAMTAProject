@@ -1,0 +1,4 @@
+type "Sales_by_Company" as Table (
+"COMPANYNAME" varchar(8),
+"SALESAMOUNT" integer
+)

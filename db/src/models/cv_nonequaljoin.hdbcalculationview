@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_nonequaljoin" applyPrivilegeType="NONE" dataCategory="DIMENSION" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cv_nonequaljoin"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="newnodes.SalesData">
+    <resourceUri>newnodes.SalesData</resourceUri>
+  </DataSource>
+  <DataSource id="newnodes.InventoryData">
+    <resourceUri>newnodes.InventoryData</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:NonEquiJoinView" id="NonEquiJoin_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="Product"/>
+      <viewAttribute id="SoldinCity"/>
+      <viewAttribute id="Year"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SoldinCity" source="SoldinCity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
+    </input>
+    <input node="Projection_2"/>
+    <joinAttribute leftColumn="Year" rightColumn="Year" operator="GT"/>
+    <joinAttribute leftColumn="Product" rightColumn="Product" operator="EQ"/>
+    <joinAttribute leftColumn="SoldinCity" rightColumn="StockinCity" operator="EQ"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="Product"/>
+      <viewAttribute id="SoldinCity"/>
+      <viewAttribute id="Year"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="newnodes.SalesData">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SoldinCity" source="SoldinCity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="Product"/>
+      <viewAttribute id="StockinCity"/>
+      <viewAttribute id="Year"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="newnodes.InventoryData">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product" source="Product"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StockinCity" source="StockinCity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="NonEquiJoin_1">
+  <attributes>
+    <attribute id="Product" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product"/>
+      <keyMapping columnObjectName="NonEquiJoin_1" columnName="Product"/>
+    </attribute>
+    <attribute id="SoldinCity" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SoldinCity"/>
+      <keyMapping columnObjectName="NonEquiJoin_1" columnName="SoldinCity"/>
+    </attribute>
+    <attribute id="Year" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year"/>
+      <keyMapping columnObjectName="NonEquiJoin_1" columnName="Year"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="NonEquiJoin_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="110" y="209"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="NonEquiJoin_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="136.0234375"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="NonEquiJoin_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136.0234375"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="10" y="354"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="252" y="354"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
