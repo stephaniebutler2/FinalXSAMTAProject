@@ -1,4 +1,4 @@
-ID: NEW_PROJ_SB
+ID: FinalXSAMTAProject
 _schema-version: '2.1'
 version: 0.0.1
 
@@ -11,8 +11,6 @@ modules:
       properties:
         TARGET_CONTAINER: ~{hdi-container-name}
 
-
-
     - name: cross-container-service-1
       group: SERVICE_REPLACEMENTS
 
@@ -20,7 +18,6 @@ modules:
         key: ServiceName_1
         service: ~{the-service-name}
                           
-
 
 resources:
  - name: hdi_db
