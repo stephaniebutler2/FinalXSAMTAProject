@@ -2,7 +2,7 @@
 <Privilege:analyticPrivilege xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="privilege" privilegeType="SQL_ANALYTIC_PRIVILEGE" schemaVersion="1.1">
 <descriptions defaultDescription="privilege"/>
 <securedModels>
-  <modelUri>cv_1</modelUri>
+  <modelUri>cv_join</modelUri>
 </securedModels>
 <whereSql>((&quot;CARRID&quot; = 'AA'))</whereSql>
 </Privilege:analyticPrivilege>
