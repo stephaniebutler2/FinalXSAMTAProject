@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cv_differential_privacy" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription=""/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kanon.Students">
+    <resourceUri>kanon.Students</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AnonymizeView" id="Anonymize_1" method="differentialPrivacy">
+    <viewAttributes>
+      <viewAttribute id="ID" aggregationType="sum"/>
+      <viewAttribute id="SITE"/>
+      <viewAttribute id="GENDER"/>
+      <viewAttribute id="AGE"/>
+      <viewAttribute id="SCORE" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="kanon.Students">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SITE" source="SITE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GENDER" source="GENDER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AGE" source="AGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCORE" source="SCORE"/>
+    </input>
+    <anonymizeParameterization>
+      <seqColumn>ID</seqColumn>
+      <epsilon>.05</epsilon>
+      <sensitivity>1</sensitivity>
+      <noisedColumn>SCORE</noisedColumn>
+    </anonymizeParameterization>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Anonymize_1">
+  <attributes>
+    <attribute id="SITE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SITE"/>
+      <keyMapping columnObjectName="Anonymize_1" columnName="SITE"/>
+    </attribute>
+    <attribute id="GENDER" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GENDER"/>
+      <keyMapping columnObjectName="Anonymize_1" columnName="GENDER"/>
+    </attribute>
+    <attribute id="AGE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AGE"/>
+      <keyMapping columnObjectName="Anonymize_1" columnName="AGE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="ID" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ID"/>
+      <measureMapping columnObjectName="Anonymize_1" columnName="ID"/>
+    </measure>
+    <measure id="SCORE" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SCORE"/>
+      <measureMapping columnObjectName="Anonymize_1" columnName="SCORE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Anonymize_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="86" y="246"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

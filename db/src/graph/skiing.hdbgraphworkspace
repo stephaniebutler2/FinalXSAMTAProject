@@ -1,0 +1,8 @@
+graph workspace "SKIING"
+edge table "StationRelationships"
+source column "start"
+target column "end"
+key column "edge_id"
+vertex table "Stations"
+key column "node_id"
+;

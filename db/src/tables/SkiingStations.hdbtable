@@ -1,0 +1,10 @@
+COLUMN TABLE "Stations"(
+	"node_id" INTEGER NOT NULL,
+	"name" NVARCHAR(16),
+	"ticket_office" NVARCHAR(4),
+	"restaurant" NVARCHAR(4),
+	PRIMARY KEY (
+		"node_id"
+	)
+);
+

@@ -1,0 +1,12 @@
+COLUMN TABLE "StationRelationships"(
+	"edge_id" INTEGER NOT NULL,
+	"length" INTEGER,
+	"difficulty" NVARCHAR(16),
+	"start" INTEGER NOT NULL,
+	"end" INTEGER NOT NULL,
+	"mode" NVARCHAR(8),
+	"status" NVARCHAR(8),
+	PRIMARY KEY (
+		"edge_id"
+	)
+);
