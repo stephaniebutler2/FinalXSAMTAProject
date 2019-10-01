@@ -1,0 +1,3 @@
+service{
+	"cv_SCARR" as "SCARR" key ("MANDT", "CARRID");
+}
