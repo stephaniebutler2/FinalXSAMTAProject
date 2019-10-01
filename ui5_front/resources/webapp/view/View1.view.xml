@@ -3,7 +3,7 @@
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
-				    <sap.ui.comp.smarttable:SmartTable xmlns:sap.ui.comp.smarttable="sap.ui.comp.smarttable" width="100%" direction="Column" fitContainer="true" tableType="ResponsiveTable" header="my cool table" enableAutoBinding="true" id="sTable" entitySet="SCARR" initiallyVisibleFields="CARRID, CARRNAME"/>
+				    <sap.ui.comp.smarttable:SmartTable xmlns:sap.ui.comp.smarttable="sap.ui.comp.smarttable" width="100%" direction="Column" fitContainer="true" tableType="ResponsiveTable" header="my cool table" enableAutoBinding="true" id="sTable" entitySet="SCARR" initiallyVisibleFields="CARRID,CARRNAME,CURRCODE,URL"/>
 				</content>
 			</Page>
 		</pages>
