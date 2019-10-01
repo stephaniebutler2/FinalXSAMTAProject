@@ -1,0 +1,11 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" controllerName="jeff_front.ui5_front.controller.View1" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+				    <sap.ui.comp.smarttable:SmartTable xmlns:sap.ui.comp.smarttable="sap.ui.comp.smarttable" width="100%" direction="Column" fitContainer="true" tableType="ResponsiveTable" header="my cool table" enableAutoBinding="true" id="sTable" entitySet="SCARR" initiallyVisibleFields="CARRID,CARRNAME,CURRCODE,URL"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
