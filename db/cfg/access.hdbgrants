@@ -1,5 +1,5 @@
 {
-	"SFLIGHTDEMO": {
+	"DBSDEMO": {
 		"object_owner": {
 			"schema_privileges": [{
 				"reference": "SFLIGHT",
